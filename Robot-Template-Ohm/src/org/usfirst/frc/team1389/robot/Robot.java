@@ -3,11 +3,13 @@ package org.usfirst.frc.team1389.robot;
 
 import org.usfirst.frc.team1389.operation.TeleopMain;
 import org.usfirst.frc.team1389.watchers.DashboardInput;
-import org.usfirst.frc.team1389.watchers.DebugDash;
 
 import com.team1389.auto.AutoModeExecuter;
+import com.team1389.hardware.inputs.software.DigitalIn;
+import com.team1389.hardware.outputs.software.DigitalOut;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -20,6 +22,8 @@ public class Robot extends IterativeRobot {
 	RobotSoftware robot;
 	TeleopMain teleOperator;
 	AutoModeExecuter autoModeExecuter;
+
+	
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -44,18 +48,15 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		DebugDash.getInstance().display();
 	}
 
 	@Override
 	public void disabledPeriodic() {
-		DebugDash.getInstance().display();
 	}
 
 	@Override
 	public void teleopInit() {
 		autoModeExecuter.stop();
-		DebugDash.getInstance().clearWatchers();
 		teleOperator.init();
 	}
 
@@ -65,10 +66,11 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		teleOperator.periodic();
-		DebugDash.getInstance().display();
+		robot.manipSetter.set(robot.joy.getButton(1, DigitalIn.InputFilter.TOGGLED).get());
+		
 	}
 
-	/**
+	/**  
 	 * This function is called periodically during test mode
 	 */
 	@Override
@@ -77,7 +79,6 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void testPeriodic() {
-		DebugDash.getInstance().display();
 	}
 
 }
