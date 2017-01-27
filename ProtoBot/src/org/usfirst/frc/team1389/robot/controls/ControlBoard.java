@@ -26,7 +26,7 @@ public class ControlBoard extends ControlMap {
 
 	// DRIVER CONTROLS
 	public PercentIn throttle = driveController.getAxis(ax_THROTTLE_AXIS).applyDeadband(.02);
-	public PercentIn wheel = driveController.getAxis(ax_WHEEL_AXIS).applyDeadband(.02);
+	public PercentIn wheel = driveController.getAxis(ax_WHEEL_AXIS).applyDeadband(.02).invert();
 	public DigitalIn quickTurn = driveController.getButton(btn_QUICK_TURN);
 
 	// MANIPULATOR CONTROLS
