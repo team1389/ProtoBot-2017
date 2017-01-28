@@ -2,6 +2,7 @@ package org.usfirst.frc.team1389.robot;
 
 import com.team1389.hardware.outputs.hardware.CANTalonGroup;
 import com.team1389.hardware.outputs.hardware.CANTalonHardware;
+import com.team1389.hardware.outputs.hardware.DoubleSolenoidHardware;
 import com.team1389.hardware.registry.Registry;
 import com.team1389.hardware.registry.port_types.CAN;
 
@@ -22,10 +23,16 @@ public class RobotHardware extends RobotLayout {
 	protected RobotHardware() {
 		registry = new Registry();
 		initDriveTrain();
+		initGripper();
 	}
 
 	public Registry getRegistry() {
 		return registry;
+	}
+
+	private void initGripper() {
+		gripperLeft = new DoubleSolenoidHardware(pcm_GRIPPER_LEFT_A, pcm_GRIPPER_LEFT_B, registry);
+		gripperRight = new DoubleSolenoidHardware(pcm_GRIPPER_RIGHT_A, pcm_GRIPPER_RIGHT_B, registry);
 	}
 
 	private void initDriveTrain() {

@@ -6,7 +6,9 @@ import com.team1389.hardware.inputs.software.DigitalIn.InputFilter;
 import com.team1389.hardware.inputs.software.PercentIn;
 
 /**
- * A basic framework for the robot controls. Like the RobotHardware, one instance of the ControlBoard object is created upon startup, then other methods request the singleton ControlBoard instance.
+ * A basic framework for the robot controls. Like the RobotHardware, one instance of the
+ * ControlBoard object is created upon startup, then other methods request the singleton
+ * ControlBoard instance.
  * 
  * @author amind
  * @see ControlMap
@@ -28,7 +30,7 @@ public class ControlBoard extends ControlMap {
 	public PercentIn throttle = driveController.getAxis(ax_THROTTLE_AXIS).applyDeadband(.02);
 	public PercentIn wheel = driveController.getAxis(ax_WHEEL_AXIS).applyDeadband(.02).invert();
 	public DigitalIn quickTurn = driveController.getButton(btn_QUICK_TURN);
-
+	public DigitalIn grip = driveController.getButton(btn_GRIPPER).getToggled();
 	// MANIPULATOR CONTROLS
 	public DigitalIn armButtonA = manipController.getButton(btn_ARM_POSITION_A).getLatched();
 	public DigitalIn armButtonB = manipController.getButton(btn_ARM_POSITION_B).getLatched();

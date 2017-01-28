@@ -2,6 +2,7 @@ package org.usfirst.frc.team1389.robot;
 
 import com.team1389.hardware.outputs.hardware.CANTalonGroup;
 import com.team1389.hardware.outputs.hardware.CANTalonHardware;
+import com.team1389.hardware.outputs.hardware.DoubleSolenoidHardware;
 import com.team1389.hardware.registry.Registry;
 
 /**
@@ -14,7 +15,8 @@ import com.team1389.hardware.registry.Registry;
  */
 public class RobotLayout extends RobotMap {
 	public Registry registry;
-
+	public DoubleSolenoidHardware gripperLeft;
+	public DoubleSolenoidHardware gripperRight;
 	CANTalonHardware leftA;
 	CANTalonHardware leftB;
 	public CANTalonGroup leftDrive;

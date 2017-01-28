@@ -1,5 +1,7 @@
 package org.usfirst.frc.team1389.robot;
 
+import com.team1389.hardware.registry.port_types.PCM;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -50,6 +52,10 @@ public class RobotMap {
 	protected static final boolean sinv_RIGHT_ENCODER = false;
 	protected static final boolean sinv_ELEVATOR_ENCODER = true;
 	protected static final boolean sinv_FLYWHEEL_ENCODER = false;	
+	protected static final PCM pcm_GRIPPER_LEFT_A=new PCM(4);
+	protected static final PCM pcm_GRIPPER_LEFT_B=new PCM(5);
+	protected static final PCM pcm_GRIPPER_RIGHT_A=new PCM(6);
+	protected static final PCM pcm_GRIPPER_RIGHT_B=new PCM(7);
 
 }
 

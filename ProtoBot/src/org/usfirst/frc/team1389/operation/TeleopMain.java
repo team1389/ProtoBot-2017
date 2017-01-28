@@ -2,6 +2,7 @@ package org.usfirst.frc.team1389.operation;
 
 import org.usfirst.frc.team1389.robot.RobotSoftware;
 import org.usfirst.frc.team1389.robot.controls.ControlBoard;
+import org.usfirst.frc.team1389.systems.GripperSystem;
 import org.usfirst.frc.team1389.watchers.DebugDash;
 
 import com.team1389.system.Subsystem;
@@ -20,9 +21,14 @@ public class TeleopMain {
 	public void init() {
 		controls = ControlBoard.getInstance();
 		Subsystem drive = setupDrive();
-		manager = new SystemManager(drive);
+		Subsystem gripper = setupGripper();
+		manager = new SystemManager(drive, gripper);
 		manager.init();
-		DebugDash.getInstance().watch(drive);
+		DebugDash.getInstance().watch(drive, gripper);
+	}
+
+	public Subsystem setupGripper() {
+		return new GripperSystem(robot.gripper, controls.grip);
 	}
 
 	public Subsystem setupDrive() {
