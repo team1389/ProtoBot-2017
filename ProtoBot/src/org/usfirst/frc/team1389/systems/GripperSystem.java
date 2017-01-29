@@ -3,7 +3,7 @@ package org.usfirst.frc.team1389.systems;
 import com.team1389.hardware.inputs.software.DigitalIn;
 import com.team1389.hardware.outputs.software.DigitalOut;
 import com.team1389.system.Subsystem;
-import com.team1389.util.AddList;
+import com.team1389.util.list.AddList;
 import com.team1389.watch.Watchable;
 
 public class GripperSystem extends Subsystem {

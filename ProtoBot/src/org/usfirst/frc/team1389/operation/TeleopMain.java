@@ -9,7 +9,7 @@ import com.team1389.hardware.inputs.software.AngleIn;
 import com.team1389.hardware.value_types.Position;
 import com.team1389.system.Subsystem;
 import com.team1389.system.SystemManager;
-import com.team1389.system.drive.CheesyDriveSystem;
+import com.team1389.system.drive.CurvatureDriveSystem;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 
@@ -39,7 +39,7 @@ public class TeleopMain {
 	}
 
 	public Subsystem setupDrive() {
-		return new CheesyDriveSystem(robot.drive, controls.throttle, controls.wheel, controls.quickTurn);
+		return new CurvatureDriveSystem(robot.drive, controls.throttle, controls.wheel, controls.quickTurn);
 	}
 
 	public void periodic() {
