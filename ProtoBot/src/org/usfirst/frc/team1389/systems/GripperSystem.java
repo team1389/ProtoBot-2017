@@ -30,7 +30,7 @@ public class GripperSystem extends Subsystem {
 	}
 
 	@Override
-	public void updateTeleop() {
+	public void update() {
 		gripper.set(gripperTrigger.get());
 	}
 
