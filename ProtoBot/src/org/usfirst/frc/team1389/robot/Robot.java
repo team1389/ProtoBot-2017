@@ -36,7 +36,6 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		autoModeExecuter.stop();
 		autoModeExecuter.setAutoMode(DashboardInput.getInstance().getSelectedAutonMode());
-		autoModeExecuter.start();
 	}
 
 	/**
